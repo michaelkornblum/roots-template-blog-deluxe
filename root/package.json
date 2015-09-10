@@ -1,0 +1,22 @@
+{
+  "name": "roots-blog-template-deluxe",
+  "description": "a wordpress-like template theme for roots",
+  "dependencies": {
+    "accord": "^0.20.1",
+    "autoprefixer-stylus": "0.7.x",
+    "axis": "0.4.x",
+    "coffee-script": "1.9.x",
+    "css-pipeline": "0.2.x",
+    "dynamic-content": "^0.3.0",
+    "jade": "1.x",
+    "js-pipeline": "0.2.x",
+    "jstransformer-marked": "0.0.x",
+    "lodash": "^3.10.1",
+    "lost": "^6.5.0",
+    "marked": "0.3.x",
+    "moment": "^2.10.6",
+    "postcss": "^4.1.16",
+    "rupture": "0.6.x",
+    "stylus": "0.51.x"
+  }
+}

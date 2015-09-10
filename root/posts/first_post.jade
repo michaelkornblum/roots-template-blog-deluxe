@@ -1,0 +1,21 @@
+---
+title: "Hello World"
+author: "You"
+description: "This is your first post."
+date: '2015-09-09'
+_content: false
+---
+
+extends ../views/layouts/_default.jade
+block variables
+  - var pageTitle = post.title
+  - var pageAuthor = post.author
+  - var pageDescription = post.description
+
+block content
+  article
+    header
+      h2=post.title
+    section
+      p This is your first blog post.
+    

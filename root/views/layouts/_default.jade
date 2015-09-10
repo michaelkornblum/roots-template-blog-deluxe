@@ -1,0 +1,14 @@
+// override global variables
+block variables
+  - var pageTitle = title
+  - var pageDescription = description
+  - var pageAuthor = author
+
+doctype html
+html(lang="en")
+ include partials/_head.jade
+ body
+   include partials/_header.jade
+   include partials/_nav.jade
+   block content
+ 

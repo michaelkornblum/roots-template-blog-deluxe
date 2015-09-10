@@ -1,0 +1,20 @@
+nav
+  ul
+    li #[a(href="/index.html")=Home]
+    for page in _.sortBy(site.pages, 'order')
+      li #[a(href=page._url)=page.title]
+     
+  h2 Latest Posts
+  - var i = 0
+  - var postIndex = site.posts.length
+  if postIndex > 5
+    - postIndex = 5  
+  ul
+    while i < postIndex
+      li #[a(href=site.posts.url)=moment(site.posts[i].date).format('MMMM, DD YYYY') + ': ' + site.posts[i].title]
+      - i++
+    
+      
+        
+  
+    
