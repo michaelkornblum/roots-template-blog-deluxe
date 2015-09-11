@@ -1,0 +1,16 @@
+{
+  "category" : [
+    {
+      "name" : "foo",
+      "_url" : "./foo.html"
+    },
+    {
+      "name" : "bar",
+      "_url" : "./bar.html"
+    },
+    {
+      "name" : "baz",
+      "_url" : "baz"
+    }
+  ]
+}

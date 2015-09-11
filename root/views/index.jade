@@ -1,6 +1,8 @@
-- var pageTitle = 'Home'
-
-extends layout
+extends layouts/_default.jade
+block variables
+  - var pageTitle = "index"
+  - var pageDescription = description
+  - var pageAuthor = author
 
 block content
   h3 Welcome to roots!

@@ -1,17 +1,60 @@
+block variables
+  - var pageTitle = title
+  - var pageDescription = description
+  - var pageAuthor = author
+
 doctype html
 html
 
   head
     meta(charset='utf8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge, chrome=1')
-    meta(name='description', content='description of your site')
-    meta(name='author', content= "author of the site")
-    //- uncomment if your site is responsive!
-    //- meta(name="viewport" content="width=device-width, initial-scale=1")
+    title=title + ' | ' + pageTitle
+    meta(name='description', content=pageDescription)
+    meta(name='author', content=pageAuthor)
+    meta(name="viewport" content="width=device-width, initial-scale=1")
     title= _path
     != css('/')
-
   body
+    header
+      h1=title
+      p=description
+      nav
+        ul
+          li #[a(href="/index.html") Home]
+          for page in _.sortBy(site.pages, 'order')
+            li #[a(href=page._url)=page.title]
+           
+        h2 Latest Posts
+        - var posts = _.sortBy(site.posts, 'date').reverse()
+        - var i = 0
+        - var postIndex = posts.length
+        if postIndex > 5
+          - postIndex = 5  
+        ul
+          while i < postIndex
+            li #[a(posts[i].url)=moment(posts[i].date).format('MMMM, DD YYYY') + ': ' + posts[i].title]
+            - i++
+        - var posts = _.sortBy(site.posts, 'date').reverse()    
+        - var latestPost = posts[0]
+        - var latestPostDate = moment(latestPost.date)
+        - var latestPostYear = latestPostDate.year()
+        - var latestPostMonth = latestPostDate.month()
+        h2 Blog Archive
+        h3=latestPostDate.format('MMMM YYYY')
+        <ul>
+        for post in posts
+          - var currentPostDate = moment(post.date)
+          - var currentPostYear = currentPostDate.year()
+          - var currentPostMonth = currentPostDate.month()
+          if (currentPostMonth < latestPostMonth || currentPostYear < latestPostYear)
+            - currentPostMonth = latestPostMonth
+            - currentPostYear = latestPostYear
+            </ul>
+            h3=currentPostDate.format('MMMM YYYY')
+            <ul>
+          li #[a(href=post._url)=post.date + ": " + post.title]
+        </ul>
     block content
 
     != js()

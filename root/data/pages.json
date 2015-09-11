@@ -1,0 +1,12 @@
+{
+  "page": [
+    {
+      "title" : "Home",
+      "_url"  : "/index.html"
+    },
+    {
+      "title" : "About",
+      "_url"  : "/about.html"
+    }
+  ]
+}

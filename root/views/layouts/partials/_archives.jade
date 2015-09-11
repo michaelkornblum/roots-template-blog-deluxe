@@ -1,0 +1,23 @@
+- var posts = _.sortBy(site.posts.blog, 'date').reverse()
+- var latestPost = posts[0]
+- var latestPostDate = moment(latestPost.date)
+- var latestPostYear = latestPostDate.year()
+- var latestPostMonth = latestPostDate.month()
+- var latestPostDay = latestPostDate.date()
+h2 Archives 
+h3=latestPostDate.format('MMMM YYYY')
+<ul>
+for post in posts
+  - var currentPostDate = moment(post.date)
+  - var currentPostYear = currentPostDate.year()
+  - var currentPostMonth = currentPostDate.month()
+  - var currentPostDay = currentPostDate.date()
+  
+  if (currentPostMonth < latestPostMonth || currentPostYear < latestPostYear)
+    - currentPostMonth = latestPostMonth
+    - currentPostYear = latestPostYear
+    </ul>
+    h3=currentPostDate.format("MMMM YYYY")
+    <ul>
+  li #[a(href=post._url)=moment(post.date).format("MMMM DD, YYYY") + ": " + post.title]
+</ul>

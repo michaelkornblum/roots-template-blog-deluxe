@@ -1,0 +1,10 @@
+h2 Latest Posts
+- var posts = _.sortBy(site.posts.blog, 'date').reverse()
+- var i = 0
+- var postIndex = posts.length
+if postIndex > 5
+  - postIndex = 5  
+ul
+  while i < postIndex
+    li #[a(posts[i]._url)=moment(posts[i].date).format('MMMM, DD YYYY') + ': ' + posts[i].title]
+    - i++

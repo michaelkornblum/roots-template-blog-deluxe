@@ -1,20 +1,11 @@
 nav
   ul
-    li #[a(href="/index.html")=Home]
-    for page in _.sortBy(site.pages, 'order')
+    for page in records.pages.page
       li #[a(href=page._url)=page.title]
+  include _latest.jade
+  include _archives.jade
+  include _categories.jade
      
-  h2 Latest Posts
-  - var i = 0
-  - var postIndex = site.posts.length
-  if postIndex > 5
-    - postIndex = 5  
-  ul
-    while i < postIndex
-      li #[a(href=site.posts.url)=moment(site.posts[i].date).format('MMMM, DD YYYY') + ': ' + site.posts[i].title]
-      - i++
-    
-      
-        
   
-    
+      
+  
