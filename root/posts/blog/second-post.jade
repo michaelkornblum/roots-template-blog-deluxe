@@ -1,0 +1,18 @@
+---
+title: 'second-post'
+description: 'this is your second blog post'
+author: you
+date: 2015-10-09
+category: general
+---
+
+extends /views/layouts/_default.jade
+
+block variables
+  - var pageTitle = post.title
+  - var pageDescription = post.description
+  - var pageAuthor = post.author
+
+block content  
+  h2=post.title
+  p this is your second blog post.
